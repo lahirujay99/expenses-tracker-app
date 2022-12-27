@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import "./Expenses.css";
-import Card from "../UI/Card";
-import ExpensesFilter from "./ExpensesFilter";
-import ExpensesList from "./ExpensesList";
+import React, { useState } from 'react';
+import './Expenses.css';
+import Card from '../UI/Card';
+import ExpensesFilter from './ExpensesFilter';
+import ExpensesList from './ExpensesList';
+import ExpensesChart from './ExpensesChart';
 
 function Expenses(props) {
-  const [filteredYear, setFilteredYear] = useState("2020");
+  const [filteredYear, setFilteredYear] = useState('2020');
   const saveSelectedYear = (year) => {
     setFilteredYear(year);
   };
@@ -20,6 +21,7 @@ function Expenses(props) {
           defaultYear={filteredYear}
           onSelectYear={saveSelectedYear}
         />
+        <ExpensesChart expenses={filteredExpenses} />
         <ExpensesList items={filteredExpenses} />
       </Card>
     </div>
