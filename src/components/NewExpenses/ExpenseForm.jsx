@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import "./ExpenseForm.css";
+import React, { useState } from 'react';
+import './ExpenseForm.css';
 
 function ExpenseForm(props) {
-  const [enteredTitle, setEnteredTitle] = useState("");
-  const [enteredAmount, setEnteredAmount] = useState("");
-  const [enteredDate, setEnteredDate] = useState("");
+  const [enteredTitle, setEnteredTitle] = useState('');
+  const [enteredAmount, setEnteredAmount] = useState('');
+  const [enteredDate, setEnteredDate] = useState('');
 
   const titleHandler = (event) => {
     console.log(event.target.value);
@@ -25,13 +25,13 @@ function ExpenseForm(props) {
     event.preventDefault();
     const data = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
     };
     props.onSaveExpenseData(data);
-    setEnteredTitle("");
-    setEnteredAmount("");
-    setEnteredDate("");
+    setEnteredTitle('');
+    setEnteredAmount('');
+    setEnteredDate('');
   };
 
   return (
